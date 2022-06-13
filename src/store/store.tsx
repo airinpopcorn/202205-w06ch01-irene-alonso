@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { CharacterModel } from "../models/character";
+import { characterReducer } from "../reducers/characters/character.reducer";
 
 export interface iState {
     characters: Array<CharacterModel>;
