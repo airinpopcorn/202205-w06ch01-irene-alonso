@@ -1,5 +1,4 @@
 import { createAction } from "@reduxjs/toolkit";
-import { create } from "domain";
 import { CharacterModel } from "../../models/character";
 import { actionTypes } from "./actions.types";
 
