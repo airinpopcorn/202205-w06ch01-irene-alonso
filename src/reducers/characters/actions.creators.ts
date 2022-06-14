@@ -1,19 +1,19 @@
 import { createAction } from "@reduxjs/toolkit";
-import { CharacterModel } from "../../models/character";
+import { Character } from "../../models/character";
 import { actionTypes } from "./actions.types";
 
-export const loadCharacters = createAction<Array<CharacterModel>>(
-    actionTypes["character@load"].toLocaleString()
+export const loadCharacters = createAction<Array<Character>>(
+    actionTypes["character@load"]
 );
 
-export const addCharacter = createAction<CharacterModel>(
-    actionTypes["character@add"].toLocaleString()
+export const addCharacter = createAction<Character>(
+    actionTypes["character@add"]
 );
 
-export const updateCharacter = createAction<CharacterModel>(
-    actionTypes["character@update"].toLocaleString()
+export const updateCharacter = createAction<Character>(
+    actionTypes["character@update"]
 );
 
-export const deleteCharacter = createAction<CharacterModel>(
-    actionTypes["character@delete"].toLocaleString()
+export const deleteCharacter = createAction<Character>(
+    actionTypes["character@delete"]
 );

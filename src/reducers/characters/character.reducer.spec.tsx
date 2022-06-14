@@ -1,37 +1,48 @@
-import { CharacterModel } from "../../models/character";
+import { Character } from "../../models/character";
 import { characterReducer } from "./character.reducer";
 import * as ac from "./actions.creators";
 
-const mockCharacters: Array<CharacterModel> = [
-    {
-        id: 1,
-        name: "testName",
-        house: "testHome",
-        isAlive: false,
-    },
-    {
-        id: 2,
-        name: "testName2",
-        house: "testHome2",
-        isAlive: false,
-    },
-];
-
-const mockCharacter: CharacterModel = {
-    id: 3,
-    name: "testName3",
-    house: "testHouse3",
-    isAlive: false,
-};
-
 describe("Given character Reducer", () => {
+    const mockCharacters: Array<Character> = [
+        {
+            id: 1,
+            name: "testName",
+            family: "testHome",
+            age: 2,
+            category: "king",
+            lifeState: true,
+            message: "testMessage",
+        },
+        {
+            id: 2,
+            name: "testName2",
+            family: "testHome2",
+            age: 5,
+            category: "king",
+            lifeState: true,
+            message: "testMessage2",
+        },
+    ];
+
+    const mockCharacter: Character = {
+        id: 3,
+        name: "testName3",
+        family: "testHome3",
+        age: 10,
+        category: "king",
+        lifeState: true,
+        message: "testMessage3",
+    };
     describe("When we call it with load action", () => {
         test("Then it should return the array mockCharacters", () => {
-            const newState = characterReducer(
-                [],
-                ac.loadCharacters(mockCharacters)
-            );
+            //Arrange
+            const initialState: Array<Character> = [];
+            const actionTest = ac.loadCharacters(mockCharacters);
+            //Act
+            const newState = characterReducer(initialState, actionTest);
+            //Assert
             expect(newState).toEqual(mockCharacters);
+            expect(newState).toHaveLength(1);
         });
     });
     describe("When we call it with add action", () => {
@@ -47,9 +58,9 @@ describe("Given character Reducer", () => {
         test("Then it should return the array mockCharacters", () => {
             const newState = characterReducer(
                 mockCharacters,
-                ac.updateCharacter({ ...mockCharacters[0], isAlive: true })
+                ac.updateCharacter({ ...mockCharacters[0], lifeState: false })
             );
-            expect(newState[0].isAlive).toEqual(true);
+            expect(newState[0].lifeState).toEqual(false);
         });
     });
     describe("When we call it with delete action", () => {
