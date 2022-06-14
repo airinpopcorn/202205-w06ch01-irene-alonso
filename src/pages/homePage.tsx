@@ -4,10 +4,12 @@ import { createCharacters } from "../data/characters";
 import { iState } from "../store/store";
 import * as ac from "../reducers/characters/actions.creators";
 import { Character } from "../components/characters/character";
+import { useNavigate } from "react-router-dom";
 
 export function HomePage() {
     const characters = useSelector((state: iState) => state.characters);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         createCharacters().then((characters) => {
@@ -15,11 +17,17 @@ export function HomePage() {
         });
     }, [dispatch]);
 
+    const handleNavigate = () => {
+        navigate("/form");
+    };
+
     return (
         <main>
             <div>
-                <h2>Game od Thrones - List</h2>
-                <button>Añadir Personaje</button>
+                <h2>Game of Thrones - List</h2>
+                <button type="button" onClick={handleNavigate}>
+                    Añadir Personaje
+                </button>
                 <ul>
                     {characters.map((item) => (
                         <Character key={item.id} character={item}></Character>

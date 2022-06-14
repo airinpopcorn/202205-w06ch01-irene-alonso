@@ -42,7 +42,7 @@ describe("Given character Reducer", () => {
             const newState = characterReducer(initialState, actionTest);
             //Assert
             expect(newState).toEqual(mockCharacters);
-            expect(newState).toHaveLength(1);
+            expect(newState).toHaveLength(2);
         });
     });
     describe("When we call it with add action", () => {
