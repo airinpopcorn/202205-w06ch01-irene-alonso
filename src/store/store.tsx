@@ -1,12 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { CharacterModel } from "../models/character";
+import { Character } from "../models/character";
 import { characterReducer } from "../reducers/characters/character.reducer";
 
 export interface iState {
-    characters: Array<CharacterModel>;
+    characters: Array<Character>;
 }
 
 const preloadedState = {
+    //Dejamos el preloadedState para poder testearlo
     characters: [],
 };
 
