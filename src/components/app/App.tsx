@@ -1,15 +1,10 @@
-import React from "react";
-import logo from "./logo.svg";
+import { HomePage } from "../../pages/homePage";
 import "./App.css";
-import { Charater } from "../characters/character";
 
-function App() {
+export function App() {
     return (
         <div className="App">
-            <header className="App-header"></header>
+            <HomePage />
         </div>
     );
 }
-
-export default App;
-
