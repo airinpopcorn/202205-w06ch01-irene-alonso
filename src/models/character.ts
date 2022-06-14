@@ -16,6 +16,7 @@ export interface iCharacter {
     submission?: number;
     lord?: Knight;
     chief?: Character;
+    lifeState: boolean;
 }
 
 export type anyCharacter = Character | King | Knight | Counselor | Squire;
@@ -35,7 +36,7 @@ export class Character {
         public category: "king" | "knight" | "counselor" | "squire"
     ) {
         this.id = Character.generateId();
-        this.lifeState = false;
+        this.lifeState = true;
         this.message = "";
     }
 }
